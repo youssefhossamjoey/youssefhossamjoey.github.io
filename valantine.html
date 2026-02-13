@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rose Pink Background</title>
+    <style>
+        :root {
+            --rose-pink: #ff6f91;
+            --rect-radius: 20px;
+        }
+        html,body {
+            height: 100%;
+            margin: 0;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, #ff8fb3 0%, var(--rose-pink) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 800px;
+            height: min(70vh, 520px);
+            border-radius: var(--rect-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+
+        /* optional: center inner content */
+        .card > .content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="main" aria-label="White centered rectangle">
+        <div class="content">
+            <img id= "icon" src="tree.png" alt="Tree icon" style="max-width:18%;max-height:80%;object-fit:contain;display:block;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;">
+                <h1 id="Text" style="margin:0;font-size:2.5rem;text-align:center;">Will you be my valentine???</h1>
+                <div style="display:flex;gap:0.75rem;margin-top:0.5rem;">
+                    <a href="yay.html" style="margin-right:130px;padding:0.5rem 1rem;border-radius:8px;border:none;background:var(--rose-pink);color:#fff;cursor:pointer;text-decoration:none;">Yes</a>
+                    <button onclick="nay()" type="button" style="padding:0.5rem 1rem;border-radius:8px;border:1px solid #ddd;background:#fff;color:#333;cursor:pointer;">No</button>
+                </div>
+            </div>
+            <script>
+                function nay() {
+                    document.getElementById("Text").innerText = "Try again! >:(";
+                    document.getElementById("icon").src = "boo.png";
+                }
+                // ensure the outer .content stacks image above this block
+                (function(){
+                    var parent = document.currentScript.parentElement;
+                    parent.style.flexDirection = 'column';
+                    parent.style.alignItems = 'center';
+                    parent.style.justifyContent = 'center';
+                    parent.style.gap = '1rem';
+                })();
+            </script></div>
+        </div>
+    </main>
+</body>
+</html>
